@@ -2,6 +2,9 @@
 
 @{
     ViewBag.Title = "Create";
+   
+  
+
 }
 
 <h2>Create</h2>
@@ -11,16 +14,8 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
+        
         <legend>Cancion</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.IdCancion)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.IdCancion)
-            @Html.ValidationMessageFor(model => model.IdCancion)
-        </div>
-
         <div class="editor-label">
             @Html.LabelFor(model => model.Nombre)
         </div>
@@ -31,6 +26,7 @@
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Duracion)
+
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Duracion)
@@ -42,25 +38,8 @@
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.FechaCreacion)
-            @Html.ValidationMessageFor(model => model.FechaCreacion)
+         
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.IdAlbum, "Album")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("IdAlbum", String.Empty)
-            @Html.ValidationMessageFor(model => model.IdAlbum)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.IdUsuario, "Usuarios")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("IdUsuario", String.Empty)
-            @Html.ValidationMessageFor(model => model.IdUsuario)
-        </div>
-
         <p>
             <input type="submit" value="Create" />
         </p>
@@ -70,5 +49,3 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-

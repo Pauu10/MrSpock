@@ -11,12 +11,18 @@ namespace MVCDisco.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Cancion
     {
         public int IdCancion { get; set; }
+
+        [Required(ErrorMessage="Ingrese un nombre")]
         public string Nombre { get; set; }
+
+        [Range(60,600,ErrorMessage = "Valores deben estar entre{1} y {2}")]
         public Nullable<int> Duracion { get; set; }
+
         public System.DateTime FechaCreacion { get; set; }
         public Nullable<int> IdAlbum { get; set; }
         public int IdUsuario { get; set; }

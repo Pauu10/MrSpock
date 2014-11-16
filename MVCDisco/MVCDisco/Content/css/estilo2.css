@@ -1,0 +1,23 @@
+@font-face{
+	src: url('../files/MyriadPro-Regular.otf');
+}
+
+body
+{
+	font-family: 'MyryadPro',verdana,helvetica,arial,sans-serif;
+}
+
+.submit {
+    margin-left:150px;
+    margin-top:10px;
+    float:right;
+}
+
+.contenedor_combo_cancion {
+    width:300px;
+    height:100px;
+    background-color:red;
+}
+
+
+

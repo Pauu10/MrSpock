@@ -1,4 +1,4 @@
-﻿@model MVCDisco.Models.Cancion
+﻿@model MVCDisco.Models.Album
 
 @{
     ViewBag.Title = "Edit";
@@ -11,14 +11,14 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Cancion</legend>
+        <legend>Album</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.IdCancion)
+            @Html.LabelFor(model => model.IdAlbum)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.IdCancion)
-            @Html.ValidationMessageFor(model => model.IdCancion)
+            @Html.EditorFor(model => model.IdAlbum)
+            @Html.ValidationMessageFor(model => model.IdAlbum)
         </div>
 
         <div class="editor-label">
@@ -30,27 +30,19 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Duracion)
+            @Html.LabelFor(model => model.Anio)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Duracion)
-            @Html.ValidationMessageFor(model => model.Duracion)
+            @Html.EditorFor(model => model.Anio)
+            @Html.ValidationMessageFor(model => model.Anio)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.FechaCreacion)
+            @Html.LabelFor(model => model.FechaCreación)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.FechaCreacion)
-            @Html.ValidationMessageFor(model => model.FechaCreacion)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.IdAlbum, "Album")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("IdAlbum", String.Empty)
-            @Html.ValidationMessageFor(model => model.IdAlbum)
+            @Html.EditorFor(model => model.FechaCreación)
+            @Html.ValidationMessageFor(model => model.FechaCreación)
         </div>
 
         <div class="editor-label">
@@ -59,6 +51,14 @@
         <div class="editor-field">
             @Html.DropDownList("IdUsuario", String.Empty)
             @Html.ValidationMessageFor(model => model.IdUsuario)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdArtista, "Artista")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("IdArtista", String.Empty)
+            @Html.ValidationMessageFor(model => model.IdArtista)
         </div>
 
         <p>

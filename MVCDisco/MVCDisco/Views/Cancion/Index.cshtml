@@ -2,14 +2,26 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Lista de Canciones</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
+   <div class="editor-label">
+            @Html.Label("Nombre de Album:")
+        </div>
+      <div class="editor-label">
+        <div class="contenedor_combo_cancion">
+        
+             @Html.DropDownList("IdAlbum", String.Empty)
+        </div>
+
+             @Html.ActionLink("Filtrar", "Create", new { /* id=item.PrimaryKey */ }) 
+        </div>
+<table  class="table table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.IdCancion)
@@ -24,10 +36,10 @@
             @Html.DisplayNameFor(model => model.FechaCreacion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Album.Nombre)
+            @Html.DisplayNameFor(model => model.IdAlbum)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Usuarios.Nombre)
+            @Html.DisplayNameFor(model => model.IdUsuario)
         </th>
         <th></th>
     </tr>
@@ -47,14 +59,13 @@
             @Html.DisplayFor(modelItem => item.FechaCreacion)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Album.Nombre)
+            @Html.DisplayFor(modelItem => item.IdAlbum)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Usuarios.Nombre)
+            @Html.DisplayFor(modelItem => item.IdUsuario)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>

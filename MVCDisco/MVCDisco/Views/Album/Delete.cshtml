@@ -1,4 +1,4 @@
-﻿@model MVCDisco.Models.Cancion
+﻿@model MVCDisco.Models.Album
 
 @{
     ViewBag.Title = "Delete";
@@ -8,13 +8,13 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <fieldset>
-    <legend>Cancion</legend>
+    <legend>Album</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.IdCancion)
+         @Html.DisplayNameFor(model => model.IdAlbum)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.IdCancion)
+        @Html.DisplayFor(model => model.IdAlbum)
     </div>
 
     <div class="display-label">
@@ -25,24 +25,17 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Duracion)
+         @Html.DisplayNameFor(model => model.Anio)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Duracion)
+        @Html.DisplayFor(model => model.Anio)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.FechaCreacion)
+         @Html.DisplayNameFor(model => model.FechaCreación)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.FechaCreacion)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Album.Nombre)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Album.Nombre)
+        @Html.DisplayFor(model => model.FechaCreación)
     </div>
 
     <div class="display-label">
@@ -50,6 +43,13 @@
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Usuarios.Nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Artista.NombreCompleto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Artista.NombreCompleto)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {

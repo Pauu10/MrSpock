@@ -1,0 +1,42 @@
+﻿@model MVCDisco.Models.Artista
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Artista</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdArtista)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IdArtista)
+            @Html.ValidationMessageFor(model => model.IdArtista)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NombreCompleto)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NombreCompleto)
+            @Html.ValidationMessageFor(model => model.NombreCompleto)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
