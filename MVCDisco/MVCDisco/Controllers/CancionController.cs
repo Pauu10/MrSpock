@@ -24,6 +24,19 @@ namespace MVCDisco.Controllers
             return View(cancion.ToList());
         }
 
+
+                [HttpPost]
+        public ActionResult Index(string IdAlbum)
+        {
+            ViewBag.IdAlbum = new SelectList(db.Album, "IdAlbum", "Nombre");
+            int id = Int32.Parse(IdAlbum);
+            var cancion = from n in db.Cancion
+                          where n.Album.IdAlbum == id
+                          select n;
+
+            return View(cancion.ToList());
+        }
+
    
 
         //

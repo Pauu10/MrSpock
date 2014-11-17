@@ -1,6 +1,10 @@
 @font-face{
-	src: url('../files/MyriadPro-Regular.otf');
+	 font-family: 'Square721 BT','Square721 Cn BT';
+     src: url('font/Square721 BT.ttf'); /* Para Internet Explorer */
+     src: url('font/tt0009m_.ttf'); /* Para Internet Explorer */
 }
+
+
 
 body
 {
@@ -24,5 +28,82 @@ body
     background-color:white;
 }
 
+#Contenido {
+    background-color:#2250a8;
+    width:100%;
+    height:auto;
+}
+
+#Pie {
+    background-color:#870033;
+    width:100%;
+    height:400px;
+}
+
+#Encabezado_index {
+    background-color:yellow;
+    margin: 0px auto;
+    width:900px;
+    height:180px;
+}
+
+.recuadro_encabezado_izquierda{
+    background-color:#db0052;
+    width:450px;
+    height:180px;
+    float:left;
+    padding-left:150px;
+    padding-top:50px;
+}
+
+.recuadro_encabezado_derecha{
+    background-color:#870033;
+    width:450px;
+    height:180px;
+    float:left;
+    padding-left:30px;
+    padding-top:50px;
+}
+
+.recuadro_encabezado_izquierda p {
+    font-family:'Square721 BT';
+    font-size:60px;
+    color:white;
+}
+
+.recuadro_encabezado_derecha p {
+    font-family:'Square721 Cn BT';
+    font-size:40px;
+    color:white;
+}
+
+.imagen_index {
+    margin-left:200px;
+}
+
+#contenedor_index {
+    margin: 0px auto;
+    width:auto;
+    height:auto;
+}
+
+.texto_index {
+    font-family:'Square721 Cn BT';
+    font-size:40px;
+    color:#2250a8;
+    margin-top:-325px;
+    margin-left:750px;
+}
+
+.espacio_blanco {
+    width:100px;
+    height:200px;
+}
+
+.triangulo {
+    position:relative;
+   z-index:1;
+}
+ 
 
 
