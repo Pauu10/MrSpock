@@ -1,5 +1,5 @@
 ﻿ <!-- Tab bootstrap-->
-              <nav class="navbar navbar-default" role="navigation">
+              <nav class="navbar navbar-inverse" role="navigation">
               <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -16,8 +16,8 @@
                       <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Album<span class="caret"></span></a>
                       <ul class="dropdown-menu" role="menu">
-                        <li><a href="Album/Create">Crear</a></li>
-                        <li><a href="Album/Index">Listar</a></li>
+                         <li>@Html.ActionLink("Crear", "Create", "Album")</li>
+                        <li>@Html.ActionLink("Listar", "Index", "Album")</li>
                       </ul>
                     </li>
                   </ul>
@@ -26,8 +26,8 @@
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Canci&oacute;n<span class="caret"></span></a>
                       <ul class="dropdown-menu" role="menu">
-                        <li><a href="Cancion/Create">Crear</a></li>
-                        <li><a href="Cancion/Index">Listar</a></li>
+                        <li>@Html.ActionLink("Crear", "Create", "Cancion")</li>
+                        <li>@Html.ActionLink("Listar", "Index", "Cancion")</li>
                       </ul>
                     </li>
                   </ul>
@@ -36,8 +36,8 @@
                       <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Artista<span class="caret"></span></a>
                       <ul class="dropdown-menu" role="menu">
-                        <li><a href="Artista/Create">Crear</a></li>
-                        <li><a href="Artista/Index">Listar</a></li>
+                         <li>@Html.ActionLink("Crear", "Create", "Artista")</li>
+                        <li>@Html.ActionLink("Listar", "Index", "Artista")</li>
                       </ul>
                     </li>
                   </ul>

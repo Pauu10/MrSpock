@@ -21,11 +21,12 @@ body
 .contenedor_combo_cancion {
     width:300px;
     height:100px;
-    background-color:red;
+    
 }
 
 .table.table-hover.album {
     background-color:white;
+    color:gray;
 }
 
 #Contenido {
@@ -38,6 +39,7 @@ body
     background-color:#870033;
     width:100%;
     height:400px;
+    clear:left;
 }
 
 #Encabezado_index {
@@ -101,8 +103,33 @@ body
 }
 
 .triangulo {
-    position:relative;
+   position:relative;
    z-index:1;
+}
+
+.contenedor_izquierdo_cancion {
+    background-image:url("../Content/imagen/hombre.jpg");
+    width:500px;
+    height:600px;
+    float:left;
+}
+
+.contenedor_derecho_cancion {
+    font-family:'Square721 BT';
+    color:white;
+    width:810px;
+    height:auto;
+    float:left;
+}
+
+.btn.btn-default.filtrar {
+    margin-top:-120px;
+    float:right;
+}
+
+.contenedor_izquierdo_cancion img {
+    margin-left:100px;
+    margin-top:70px;
 }
  
 
