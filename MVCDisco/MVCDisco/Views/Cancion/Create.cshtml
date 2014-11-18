@@ -31,6 +31,10 @@
             @Html.EditorFor(model => model.Duracion)
             @Html.ValidationMessageFor(model => model.Duracion)
         </div>
+        <div class="editor-field">
+            @Html.DropDownList("IdArtista", String.Empty)
+           
+        </div>
 
                <p>
             <input type="submit" value="Create" />

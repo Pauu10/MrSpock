@@ -44,6 +44,7 @@ namespace MVCDisco.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.IdAlbum = new SelectList(db.Album, "IdAlbum", "Nombre");
             return View();
         }
 

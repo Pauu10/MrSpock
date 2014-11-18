@@ -23,6 +23,7 @@ namespace MVCDisco.Models
         [Range(60,600,ErrorMessage = "Valores deben estar entre{1} y {2}")]
         public Nullable<int> Duracion { get; set; }
 
+        [DisplayFormat(DataFormatString= "{0:d}")]
         public System.DateTime FechaCreacion { get; set; }
         public Nullable<int> IdAlbum { get; set; }
         public int IdUsuario { get; set; }
