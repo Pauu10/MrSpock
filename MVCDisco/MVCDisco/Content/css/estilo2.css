@@ -132,5 +132,18 @@ body
     margin-top:70px;
 }
  
+.texto_error{
+    font-family:'Square721 Cn BT';
+    font-size:40px;
+    color:#2250a8;
+    margin-top:-380px;
+    margin-left:600px;
+}
 
+.texto_error span{
+    font-family:'Square721 Cn BT';
+    font-size:70px;
+    font-weight:bold;
+   
+}
 
