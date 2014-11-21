@@ -25,6 +25,7 @@ namespace MVCDisco.Models
 
         [DisplayFormat(DataFormatString= "{0:d}")]
         public System.DateTime FechaCreacion { get; set; }
+
         public Nullable<int> IdAlbum { get; set; }
         public int IdUsuario { get; set; }
     

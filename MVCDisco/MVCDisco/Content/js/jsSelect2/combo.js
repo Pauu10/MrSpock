@@ -1,7 +1,9 @@
 
-         $(document).ready(function () {
-             $("#IdAlbum").select2({
-                 placeholder: "Select a State",
-                 width: "element"
-             });
-         });
+$(document).ready(function () {
+ 
+    $("#IdAlbum").select2({
+         placeholder: "Elija una opcion",
+         width: "element"
+    });
+
+  });

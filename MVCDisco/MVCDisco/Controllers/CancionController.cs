@@ -4,37 +4,41 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVCDisco.Models;
+using MVCDisco.Servicios;
 
 namespace MVCDisco.Controllers
 {
     public class CancionController : Controller
     {
 
-        TP20142CEntities1 db = new TP20142CEntities1();
+        AlbumServicio albumServicio = new AlbumServicio();
+        CancionServicio cancionServicio= new CancionServicio();
         //
         // GET: /Cancion/
 
         public ActionResult Index()
         {
-            ViewBag.IdAlbum = new SelectList(db.Album, "IdAlbum", "Nombre");
-            var cancion = from n in db.Cancion
-                          orderby n.Nombre
-                          select n;
+          
+            ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum(), "IdAlbum", "Nombre");
+           
              
-            return View(cancion.ToList());
+            return View(cancionServicio.OrdenarCancionPorNombre());
         }
 
 
                 [HttpPost]
         public ActionResult Index(string IdAlbum)
         {
-            ViewBag.IdAlbum = new SelectList(db.Album, "IdAlbum", "Nombre");
-            int id = Int32.Parse(IdAlbum);
-            var cancion = from n in db.Cancion
-                          where n.Album.IdAlbum == id
-                          select n;
 
-            return View(cancion.ToList());
+            ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum(), "IdAlbum", "Nombre");
+            int resultado;
+               if(int.TryParse(IdAlbum, out resultado)){
+
+                   return View(cancionServicio.FiltrarCancionPorAlbum(Int32.Parse(IdAlbum)));
+
+               }
+
+               return View(cancionServicio.OrdenarCancionPorNombre());
         }
 
    
@@ -44,7 +48,7 @@ namespace MVCDisco.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.IdAlbum = new SelectList(db.Album, "IdAlbum", "Nombre");
+            ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum(), "IdAlbum", "Nombre");
             return View();
         }
 
@@ -58,15 +62,39 @@ namespace MVCDisco.Controllers
 
             if (ModelState.IsValid)
             {
-                cancion.IdUsuario = 4;
-                cancion.FechaCreacion = DateTime.Now;
-                
-                db.Cancion.Add(cancion);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                String letra = cancion.IdAlbum.ToString();
+                int resultado;
+                if (int.TryParse(letra, out resultado))
+                {
+                    if (cancionServicio.EvaluarCrearCancion(resultado,cancion.Nombre))
+                    {
+                        ViewBag.Mensaje = "El nombre ya exite Cambie el nombre o el album";
+                        return View();
 
-            }
+                    }
+                    cancionServicio.CrearCancion(cancion);
+                    ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum(), "IdAlbum", "Nombre");
+                    return RedirectToAction("Index");
+                   
 
+                }
+
+                else
+                {
+                    if (cancionServicio.EvaluarCrearCancion(cancion.Nombre))
+                    {
+                        ViewBag.Mensaje = "El nombre ya exite Cambie el nombre o el album";
+                        return View();
+                    }
+
+                    cancionServicio.CrearCancion(cancion);
+                    ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum(), "IdAlbum", "Nombre");
+                    return RedirectToAction("Index");
+                }
+               
+              }
+
+            ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum(), "IdAlbum", "Nombre", cancion.IdAlbum);
             return View(cancion);
             
         }
