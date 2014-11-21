@@ -1,0 +1,93 @@
+﻿@model IEnumerable<MVCDisco.Models.Album>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("NavMenu_Partial")
+
+<div id="contenedor_index">
+
+    <div class="contenedor_izquierdo_cancion">
+         <img class="cualquiera" src="@Url.Content("~/Content/imagen/hombre.jpg")" alt="hombre_con_computadora" width="310" height="559" />
+    </div>
+   
+
+    <div class="contenedor_derecho_cancion">
+            <h2>Lista de Albums</h2>
+
+           
+            @using (Html.BeginForm()){
+               <div class="editor-label">
+                        @Html.Label("Nombre de Artista:")
+                    </div>
+                  <div class="editor-label">
+                    <div class="contenedor_combo_cancion">
+        
+                         @Html.DropDownList("IdArtista", String.Empty)
+                    </div>
+
+                    </div>
+            }
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-hover album">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdAlbum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Anio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaCreación)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdArtista)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdAlbum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Anio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaCreación)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdUsuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdArtista)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IdAlbum }, new {@class = "LinkBorrado"}
+ )
+        </td>
+    </tr>
+}
+
+</table>
+        <div class="espacio_blanco"></div>
+     <div class="espacio_blanco"></div>
+        </div>
+    
+    </div>
