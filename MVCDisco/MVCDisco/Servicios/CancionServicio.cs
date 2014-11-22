@@ -69,6 +69,7 @@ namespace MVCDisco.Servicios
            
             var cancion = (from a in db.Cancion where a.IdCancion == id select a).First();
             db.Cancion.Remove(cancion);
+            db.SaveChanges();
         }
 
 
