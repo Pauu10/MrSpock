@@ -63,6 +63,14 @@ namespace MVCDisco.Servicios
             return true;
         }
 
+        //Metodo que borra una cancion
+        public void BorrarCancion(int id)
+        {
+           
+            var cancion = (from a in db.Cancion where a.IdCancion == id select a).First();
+            db.Cancion.Remove(cancion);
+        }
+
 
     }
 }
