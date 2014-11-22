@@ -2,32 +2,42 @@
 
 @{
     ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@Html.Partial("NavMenu_Partial")
+  <div id="contenedor_index">
 
-<h2>Delete</h2>
+    <div class="contenedor_izquierdo_cancion">
+         <img class="cualquiera" src="@Url.Content("~/Content/imagen/hombre.jpg")" alt="hombre_con_computadora" width="310" height="559" />
+    </div>
+   
 
-<h3>Are you sure you want to delete this?</h3>
-<fieldset>
-    <legend>Artista</legend>
+    <div class="contenedor_derecho_cancion">
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.IdArtista)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.IdArtista)
-    </div>
+                <h2>Eliminar Artista</h2>
+                <h3>Are you sure you want to delete this?</h3>
+                        
+                           
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.NombreCompleto)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.NombreCompleto)
-    </div>
-</fieldset>
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-}
+                            <div class="display-label">
+                                 @Html.DisplayNameFor(model => model.IdArtista)
+                            </div>
+                            <div class="display-field">
+                                @Html.DisplayFor(model => model.IdArtista)
+                            </div>
+
+                            <div class="display-label">
+                                 @Html.DisplayNameFor(model => model.NombreCompleto)
+                            </div>
+                            <div class="display-field">
+                                @Html.DisplayFor(model => model.NombreCompleto)
+                            </div>
+                       
+                        @using (Html.BeginForm(null, null, FormMethod.Post, new { role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <p>
+                                <input type="submit" class="btn btn-default" value="Eliminar" /> |
+       
+                            </p>
+                        }

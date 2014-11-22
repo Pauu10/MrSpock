@@ -11,6 +11,7 @@ namespace MVCDisco.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Artista
     {
@@ -20,6 +21,8 @@ namespace MVCDisco.Models
         }
     
         public int IdArtista { get; set; }
+
+       [Required(ErrorMessage = "Ingrese un nombre")]
         public string NombreCompleto { get; set; }
     
         public virtual ICollection<Album> Album { get; set; }

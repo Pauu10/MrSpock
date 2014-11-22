@@ -2,28 +2,34 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+@Html.Partial("NavMenu_Partial")
+  <div id="contenedor_index">
 
-<fieldset>
-    <legend>Artista</legend>
+    <div class="contenedor_izquierdo_cancion">
+         <img class="cualquiera" src="@Url.Content("~/Content/imagen/hombre.jpg")" alt="hombre_con_computadora" width="310" height="559" />
+    </div>
+   
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.IdArtista)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.IdArtista)
-    </div>
+    <div class="contenedor_derecho_cancion">
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.NombreCompleto)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.NombreCompleto)
-    </div>
-</fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                <h2>Detalle Artista</h2>
+
+                            <div class="display-label">
+                                 @Html.DisplayNameFor(model => model.IdArtista)
+                            </div>
+                            <div class="display-field">
+                                @Html.DisplayFor(model => model.IdArtista)
+                            </div>
+
+                            <div class="display-label">
+                                 @Html.DisplayNameFor(model => model.NombreCompleto)
+                            </div>
+                            <div class="display-field">
+                                @Html.DisplayFor(model => model.NombreCompleto)
+                            </div>
+
+        </div>
+      </div>

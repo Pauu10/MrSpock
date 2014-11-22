@@ -2,41 +2,45 @@
 
 @{
     ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+@Html.Partial("NavMenu_Partial")
 
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+<div id="contenedor_index">
 
-    <fieldset>
-        <legend>Artista</legend>
+    <div class="contenedor_izquierdo_cancion">
+         <img class="cualquiera" src="@Url.Content("~/Content/imagen/hombre.jpg")" alt="hombre_con_computadora" width="310" height="559" />
+    </div>
+   
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.IdArtista)
+    <div class="contenedor_derecho_cancion">
+            <h2>Lista de Canciones</h2>
+
+                    @using (Html.BeginForm(null, null, FormMethod.Post, new { role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                         
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.NombreCompleto)
+                            </div>
+                            <div class="editor-field">
+                                  @Html.TextBox("NombreCompleto", null, new { @class = "form-control",placeholder="Ingrese Nombre"})
+                                @Html.ValidationMessageFor(model => model.NombreCompleto)
+                            </div>
+
+                            <p>
+                                <input type="submit" class="btn btn-default" value="Create" />
+                            </p>
+                        
+                    }
+
+                    <div class="espacio_blanco"></div>
+                    <div class="espacio_blanco"></div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.IdArtista)
-            @Html.ValidationMessageFor(model => model.IdArtista)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.NombreCompleto)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.NombreCompleto)
-            @Html.ValidationMessageFor(model => model.NombreCompleto)
-        </div>
-
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
+    
+  </div>
 
