@@ -33,9 +33,7 @@
             }
             <table  class="table table-hover album">
                 <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.IdCancion)
-                    </th>
+                   
                     <th>
                         @Html.DisplayNameFor(model => model.Nombre)
                     </th>
@@ -48,33 +46,45 @@
                     <th>
                         @Html.DisplayNameFor(model => model.IdAlbum)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.IdUsuario)
-                    </th>
+                  
                     <th></th>
                 </tr>
 
             @foreach (var item in Model) {
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IdCancion)
-                    </td>
+                   
                     <td>
                         @Html.DisplayFor(modelItem => item.Nombre)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Duracion)
+                       
+                         @{ var duracion = 0.0167 * @item.Duracion;
+                            var texto = "desconocido";}
+                             
+                            @if(duracion == null){
+                             @texto
+                            }
+                           else{
+                            @Decimal.Round(Convert.ToDecimal(duracion), 2).ToString().Replace(",", ":")
+                            
+                        }
                     </td>
                     <td>
                        
                         @Html.DisplayFor(modelItem  => item.FechaCreacion)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdAlbum)
+                        
+                        @if (item.IdAlbum == null)
+                        {
+                            @texto
+                         }
+                        else{
+                        @Html.DisplayFor(modelItem => item.Album.Nombre)
+                        }
+                        
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IdUsuario)
-                    </td>
+                   
                     <td>
                         @Html.ActionLink("Editar", "Edit", new {  id= item.IdCancion  }) |
                         @Html.ActionLink("Eliminar", "Delete", new { id = item.IdCancion}, new {@class = "LinkBorrado"})
