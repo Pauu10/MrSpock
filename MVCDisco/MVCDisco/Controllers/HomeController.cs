@@ -13,6 +13,7 @@ namespace MVCDisco.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.Mensaje = "natalia";
             return View();
         }
 

@@ -26,8 +26,8 @@ namespace MVCDisco.Servicios
         //Metodo que evalua si el nombre de una cancion con album exite
         public bool EvaluarCrearCancion(int id,string nombre)
         {
-            List<Cancion> listaCancion = (from a in db.Cancion where a.Nombre == nombre && a.IdAlbum == id select a).ToList();
-            if (listaCancion.Count > 0)
+            var nombreCancion = (from a in db.Cancion where a.Nombre == nombre && a.IdAlbum == id select a).FirstOrDefault();
+            if (nombreCancion != null)
             {
                 return true;
             }
@@ -41,8 +41,8 @@ namespace MVCDisco.Servicios
         //Metodo que evalua si el nombre de una sin album cancion ya exite 
         public bool EvaluarCrearCancion(string nombre)
         {
-            List<Cancion> listaCancion = (from a in db.Cancion where a.Nombre == nombre && a.IdAlbum == null select a).ToList();
-            if (listaCancion.Count > 0)
+            var nombreCancion = (from a in db.Cancion where a.Nombre == nombre && a.IdAlbum == null select a).FirstOrDefault();
+            if (nombreCancion != null)
             {
                 return true;
             }
