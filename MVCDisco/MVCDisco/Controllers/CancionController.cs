@@ -11,7 +11,7 @@ namespace MVCDisco.Controllers
     public class CancionController : Controller
     {
 
-        AlbumServicio albumServicio = new AlbumServicio();
+        //AlbumServicio albumServicio = new AlbumServicio();
         CancionServicio cancionServicio= new CancionServicio();
         //
         // GET: /Cancion/
@@ -19,7 +19,7 @@ namespace MVCDisco.Controllers
         public ActionResult Index()
         {
           
-            ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum(), "IdAlbum", "Nombre");
+          //  ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum(), "IdAlbum", "Nombre");
            
              
             return View(cancionServicio.OrdenarCancionPorNombre());
@@ -30,7 +30,7 @@ namespace MVCDisco.Controllers
         public ActionResult Index(string IdAlbum)
         {
 
-            ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum(), "IdAlbum", "Nombre");
+          //  ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum(), "IdAlbum", "Nombre");
             int resultado;
                if(int.TryParse(IdAlbum, out resultado)){
 
@@ -48,7 +48,7 @@ namespace MVCDisco.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum(), "IdAlbum", "Nombre");
+         //   ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum(), "IdAlbum", "Nombre");
             return View();
         }
 
@@ -92,7 +92,7 @@ namespace MVCDisco.Controllers
                
               }
 
-            ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum(), "IdAlbum", "Nombre", cancion.IdAlbum);
+         //   ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum(), "IdAlbum", "Nombre", cancion.IdAlbum);
             return View(cancion);
             
         }
@@ -152,14 +152,14 @@ namespace MVCDisco.Controllers
 
         private void DentroIf()
         {
-            ViewBag.Mensaje = "El nombre ya exite Cambie el nombre o el album";
-            ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum(), "IdAlbum", "Nombre");
+          //  ViewBag.Mensaje = "El nombre ya exite Cambie el nombre o el album";
+           // ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum(), "IdAlbum", "Nombre");
         }
 
         private void FueraIf(Cancion cancion)
         {
             cancionServicio.CrearCancion(cancion);
-            ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum(), "IdAlbum", "Nombre");
+           // ViewBag.IdAlbum = new SelectList(albumServicio.BuscarTodoAlbum(), "IdAlbum", "Nombre");
         }
     }
 }
